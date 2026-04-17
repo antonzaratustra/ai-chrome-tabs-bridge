@@ -29,13 +29,20 @@ Runtime files such as `state.json`, `queue.json`, and `results.jsonl` are ignore
 
 ## Quick start
 
-1. Clone or download this repository.
-2. Open Chrome and load the extension:
+Clone the repository:
+
+```bash
+git clone https://github.com/antonzaratustra/ai-chrome-tabs-bridge.git
+```
+
+Then:
+
+1. Open Chrome and load the extension:
    - `chrome://extensions`
    - enable `Developer mode`
    - click `Load unpacked`
    - choose the repository folder
-3. Start the local bridge:
+2. Start the local bridge:
 
 ```bash
 python3 bridge.py
