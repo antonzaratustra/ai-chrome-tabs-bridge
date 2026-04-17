@@ -9,6 +9,10 @@ AI Chrome Tabs Bridge is a Chrome extension plus a small local Python bridge for
 - lets you activate tabs, focus windows, move tabs, and manage groups;
 - keeps runtime state outside the repository by default.
 
+## Preview
+
+![AI Chrome Tabs Bridge popup preview](docs/popup-preview.png)
+
 ## Requirements
 
 - Google Chrome
@@ -24,6 +28,7 @@ No third-party Python packages are required.
 - `popup.html`, `popup.css`, `popup.js` - extension UI
 - `bridge.py` - local HTTP bridge
 - `offscreen.html`, `offscreen.js` - extension support files
+- `SKILL.md` - repository-local guide for AI agents and contributors
 
 Runtime files such as `state.json`, `queue.json`, and `results.jsonl` are ignored by Git.
 
@@ -70,6 +75,10 @@ curl http://127.0.0.1:8765/state
 - Clicking a tab activates it in Chrome.
 - Group headers can be collapsed or expanded.
 - The `i` icon in the header shows a short localized usage tip.
+
+## For AI agents
+
+This repository includes [`SKILL.md`](SKILL.md), a short repository-local guide that explains what the project is for and how an AI agent should use the live bridge. The active Codex skill still lives in the user's Codex skills folder, but this repo file is the human-readable copy that travels with the codebase.
 
 ## Command API
 
