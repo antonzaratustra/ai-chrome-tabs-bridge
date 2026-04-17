@@ -13,6 +13,46 @@ AI Chrome Tabs Bridge is a Chrome extension plus a small local Python bridge for
 
 ![AI Chrome Tabs Bridge popup preview](docs/popup-preview.png)
 
+## Installation
+
+You can install and use this project in two ways.
+
+### Option 1: Let Codex set it up
+
+If you are using Codex, install the `chrome-tabs-bridge` skill first. Then open a fresh Codex chat and tell it to use that skill. Codex will:
+
+1. clone the GitHub repository,
+2. load the unpacked Chrome extension,
+3. start the local Python bridge,
+4. and guide you through `Refresh and sync`.
+
+This is the easiest option if you want the AI agent to handle the setup for you.
+
+### Option 2: Install it manually from GitHub
+
+Clone the repository:
+
+```bash
+git clone https://github.com/antonzaratustra/ai-chrome-tabs-bridge.git
+```
+
+Then:
+
+1. Open Chrome and load the extension:
+   - `chrome://extensions`
+   - enable `Developer mode`
+   - click `Load unpacked`
+   - choose the repository folder
+2. Start the local bridge:
+
+```bash
+python3 bridge.py
+```
+
+3. Open the popup and click `Refresh and sync`.
+
+By default the bridge stores its data in `~/.chrome-tabs-bridge`. You can override that with `--root` if you want a different location.
+
 ## Requirements
 
 - Google Chrome
@@ -34,32 +74,8 @@ Runtime files such as `state.json`, `queue.json`, and `results.jsonl` are ignore
 
 ## Quick start
 
-Clone the repository:
-
-```bash
-git clone https://github.com/antonzaratustra/ai-chrome-tabs-bridge.git
-```
-
-Then:
-
-1. Open Chrome and load the extension:
-   - `chrome://extensions`
-   - enable `Developer mode`
-   - click `Load unpacked`
-   - choose the repository folder
-2. Start the local bridge:
-
-```bash
-python3 bridge.py
-```
-
-By default the bridge stores its data in:
-
-```text
-~/.chrome-tabs-bridge
-```
-
-You can override that with `--root` if you want a different location.
+If you already installed the repository, load the extension in Chrome, start
+the bridge, and click `Refresh and sync` in the popup.
 
 ## Check that everything is running
 
