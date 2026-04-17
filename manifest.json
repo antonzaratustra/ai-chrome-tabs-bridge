@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Chrome Tabs Bridge",
+  "name": "AI Chrome Tabs Bridge",
   "version": "0.1.0",
   "description": "Expose live Chrome windows, tabs, and tab groups to a local bridge and accept tab-management commands.",
   "permissions": [
@@ -19,6 +19,6 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Chrome Tabs Bridge"
+    "default_title": "AI Chrome Tabs Bridge"
   }
 }

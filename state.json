@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-04-17T01:14:28.078Z",
+  "capturedAt": "2026-04-17T01:22:38.747Z",
   "windowCount": 4,
   "tabCount": 243,
   "windows": [
@@ -3941,7 +3941,7 @@
           "title": "14 notifications",
           "url": "https://web.telegram.org/a/#-1003783045738",
           "host": "web.telegram.org",
-          "favIconUrl": "https://web.telegram.org/a/favicon-unread.svg",
+          "favIconUrl": "https://web.telegram.org/a/favicon.ico",
           "groupTitle": "Scratch / Heap",
           "groupColor": "pink",
           "groupCollapsed": true,
@@ -4643,13 +4643,13 @@
     {
       "id": 11070535,
       "focused": false,
-      "state": "normal",
+      "state": "maximized",
       "incognito": false,
       "type": "normal",
-      "left": 90,
-      "top": 189,
-      "width": 1900,
-      "height": 1030,
+      "left": 0,
+      "top": 30,
+      "width": 1920,
+      "height": 1050,
       "tabs": [
         {
           "id": 11070534,

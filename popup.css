@@ -183,6 +183,10 @@ html[data-theme="dark"] .switch-pill.is-active {
   min-width: 180px;
 }
 
+.lang-menu[hidden] {
+  display: none !important;
+}
+
 .lang-option {
   width: 100%;
   min-width: 0;
@@ -615,6 +619,20 @@ html[data-theme="dark"] .window-tab:hover {
   border-radius: 4px;
   flex: 0 0 auto;
   background: linear-gradient(135deg, rgba(206, 92, 60, 0.9), rgba(45, 108, 223, 0.9));
+  background-color: #ff7a18;
+}
+
+.tab-icon.has-favicon {
+  background-color: #fff;
+  background-clip: padding-box;
+  background-size: 80% 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(31, 26, 23, 0.12);
+}
+
+html[data-theme="dark"] .tab-icon.has-favicon {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
 }
 
 .tab-main {

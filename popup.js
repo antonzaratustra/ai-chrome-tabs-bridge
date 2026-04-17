@@ -11,7 +11,7 @@ const UI_STATE_KEY = "chrome-tabs-bridge-ui-state";
 
 const I18N = {
   en: {
-    eyebrow: "Chrome Tabs Bridge",
+    eyebrow: "AI Chrome Tabs Bridge",
     title: "Live access to tabs",
     loading: "Loading...",
     refreshAndSync: "Refresh and sync",
@@ -44,7 +44,7 @@ const I18N = {
     chromeWindows: "Chrome windows"
   },
   ru: {
-    eyebrow: "Chrome Tabs Bridge",
+    eyebrow: "AI Chrome Tabs Bridge",
     title: "Живой доступ к вкладкам",
     loading: "Загрузка...",
     refreshAndSync: "Обновить и синхронизировать",
@@ -77,7 +77,7 @@ const I18N = {
     chromeWindows: "Окна Chrome"
   },
   es: {
-    eyebrow: "Chrome Tabs Bridge",
+    eyebrow: "AI Chrome Tabs Bridge",
     title: "Acceso en vivo a pestañas",
     loading: "Cargando...",
     refreshAndSync: "Actualizar y sincronizar",
@@ -110,7 +110,7 @@ const I18N = {
     chromeWindows: "Ventanas de Chrome"
   },
   fr: {
-    eyebrow: "Chrome Tabs Bridge",
+    eyebrow: "AI Chrome Tabs Bridge",
     title: "Accès en direct aux onglets",
     loading: "Chargement...",
     refreshAndSync: "Actualiser et synchroniser",
@@ -143,7 +143,7 @@ const I18N = {
     chromeWindows: "Fenêtres Chrome"
   },
   de: {
-    eyebrow: "Chrome Tabs Bridge",
+    eyebrow: "AI Chrome Tabs Bridge",
     title: "Live-Zugriff auf Tabs",
     loading: "Lädt...",
     refreshAndSync: "Aktualisieren und synchronisieren",
@@ -176,7 +176,7 @@ const I18N = {
     chromeWindows: "Chrome-Fenster"
   },
   pt: {
-    eyebrow: "Chrome Tabs Bridge",
+    eyebrow: "AI Chrome Tabs Bridge",
     title: "Acesso ao vivo às abas",
     loading: "Carregando...",
     refreshAndSync: "Atualizar e sincronizar",
@@ -209,7 +209,7 @@ const I18N = {
     chromeWindows: "Janelas do Chrome"
   },
   it: {
-    eyebrow: "Chrome Tabs Bridge",
+    eyebrow: "AI Chrome Tabs Bridge",
     title: "Accesso live alle schede",
     loading: "Caricamento...",
     refreshAndSync: "Aggiorna e sincronizza",
@@ -242,7 +242,7 @@ const I18N = {
     chromeWindows: "Finestre di Chrome"
   },
   ja: {
-    eyebrow: "Chrome Tabs Bridge",
+    eyebrow: "AI Chrome Tabs Bridge",
     title: "タブへのライブアクセス",
     loading: "読み込み中...",
     refreshAndSync: "更新して同期",
@@ -275,7 +275,7 @@ const I18N = {
     chromeWindows: "Chrome ウィンドウ"
   },
   ko: {
-    eyebrow: "Chrome Tabs Bridge",
+    eyebrow: "AI Chrome Tabs Bridge",
     title: "탭 실시간 접근",
     loading: "불러오는 중...",
     refreshAndSync: "새로고침 및 동기화",
@@ -308,7 +308,7 @@ const I18N = {
     chromeWindows: "Chrome 창"
   },
   zh: {
-    eyebrow: "Chrome Tabs Bridge",
+    eyebrow: "AI Chrome Tabs Bridge",
     title: "标签实时访问",
     loading: "加载中...",
     refreshAndSync: "刷新并同步",
@@ -452,6 +452,23 @@ function escapeHtml(text) {
     .replaceAll('"', "&quot;");
 }
 
+function safeFavIconUrl(url) {
+  if (!url) {
+    return "";
+  }
+
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol === "http:" || parsed.protocol === "https:" || parsed.protocol === "data:") {
+      return url;
+    }
+  } catch {
+    return "";
+  }
+
+  return "";
+}
+
 async function fetchJson(path, options = {}) {
   const response = await fetch(`${BRIDGE_URL}${path}`, {
     ...options,
@@ -543,7 +560,7 @@ function applyPreferences() {
     themeToggleBtn.setAttribute("aria-pressed", currentTheme() === "dark" ? "true" : "false");
   }
   if (langToggleBtn) {
-    langToggleBtn.textContent = currentLang().toUpperCase();
+    langToggleBtn.textContent = currentLang();
     langToggleBtn.setAttribute("aria-expanded", langMenu && !langMenu.hidden ? "true" : "false");
     langToggleBtn.setAttribute("title", currentLang().toUpperCase());
   }
@@ -554,10 +571,11 @@ function applyPreferences() {
     langMenu.setAttribute("aria-label", t("languageOptions"));
   }
   renderLanguageMenu();
+  setLangMenuOpen(false);
 }
 
 function setLang(lang) {
-  uiState.lang = lang === "ru" ? "ru" : "en";
+  uiState.lang = isSupportedLang(lang) ? lang : "en";
   saveUiState();
   applyPreferences();
 }
@@ -643,6 +661,11 @@ function renderTab(tab) {
   if (tab.active) stateBits.push(t("active"));
   if (tab.pinned) stateBits.push(t("pinned"));
   if (tab.muted) stateBits.push(t("muted"));
+  const faviconUrl = safeFavIconUrl(tab.favIconUrl);
+  const faviconStyle = faviconUrl
+    ? ` style="${escapeHtml(`background-image: url(${JSON.stringify(faviconUrl)})`)}"`
+    : "";
+  const faviconClass = faviconUrl ? " has-favicon" : "";
 
   return `
     <button
@@ -652,7 +675,7 @@ function renderTab(tab) {
       data-tab-id="${escapeHtml(tab.id)}"
       title="${escapeHtml(tab.title)}"
     >
-      <div class="tab-icon" aria-hidden="true"></div>
+      <div class="tab-icon${faviconClass}" aria-hidden="true"${faviconStyle}></div>
       <div class="tab-main">
         <div class="tab-title">${escapeHtml(tab.title)}</div>
         <div class="tab-url">${escapeHtml(tab.host)} · ${escapeHtml(tab.url)}</div>
