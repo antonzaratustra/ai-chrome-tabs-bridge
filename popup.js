@@ -2,8 +2,9 @@ const summaryEl = document.getElementById("summary");
 const treeEl = document.getElementById("tree");
 const refreshBtn = document.getElementById("refresh");
 const themeToggleBtn = document.getElementById("theme-toggle");
-const langEnBtn = document.getElementById("lang-en");
-const langRuBtn = document.getElementById("lang-ru");
+const langToggleBtn = document.getElementById("lang-toggle");
+const langMenu = document.getElementById("lang-menu");
+const langMenuButtons = Array.from(document.querySelectorAll(".lang-option"));
 
 const BRIDGE_URL = "http://127.0.0.1:8765";
 const UI_STATE_KEY = "chrome-tabs-bridge-ui-state";
@@ -183,9 +184,15 @@ function applyPreferences() {
     themeToggleBtn.textContent = currentTheme() === "dark" ? t("themeDark") : t("themeLight");
     themeToggleBtn.setAttribute("aria-pressed", currentTheme() === "dark" ? "true" : "false");
   }
-  if (langEnBtn && langRuBtn) {
-    langEnBtn.classList.toggle("is-active", currentLang() === "en");
-    langRuBtn.classList.toggle("is-active", currentLang() === "ru");
+  if (langToggleBtn) {
+    langToggleBtn.textContent = currentLang();
+    langToggleBtn.setAttribute("aria-expanded", langMenu && !langMenu.hidden ? "true" : "false");
+  }
+  for (const button of langMenuButtons) {
+    const alternateLang = currentLang() === "en" ? "ru" : "en";
+    button.dataset.lang = alternateLang;
+    button.textContent = alternateLang;
+    button.classList.toggle("is-active", false);
   }
   document.title = t("title");
 }
@@ -497,7 +504,10 @@ function scrollPage(deltaY) {
     return;
   }
 
-  window.scrollBy({ top: deltaY, left: 0, behavior: "auto" });
+  const outerScroll = treeEl;
+  if (outerScroll) {
+    outerScroll.scrollTop += deltaY;
+  }
 }
 
 document.addEventListener(
@@ -576,19 +586,39 @@ themeToggleBtn.addEventListener("click", () => {
   }
 });
 
-langEnBtn.addEventListener("click", () => {
-  setLang("en");
-  if (lastState) {
-    renderState(lastState);
+function setLangMenuOpen(open) {
+  if (!langMenu || !langToggleBtn) {
+    return;
   }
-});
+  langMenu.hidden = !open;
+  langToggleBtn.setAttribute("aria-expanded", open ? "true" : "false");
+}
 
-langRuBtn.addEventListener("click", () => {
-  setLang("ru");
-  if (lastState) {
-    renderState(lastState);
-  }
-});
+if (langToggleBtn && langMenu) {
+  langToggleBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    setLangMenuOpen(langMenu.hidden);
+  });
+
+  langMenu.addEventListener("click", (event) => {
+    const option = event.target.closest("[data-lang]");
+    if (!option) {
+      return;
+    }
+
+    setLang(option.dataset.lang);
+    setLangMenuOpen(false);
+    if (lastState) {
+      renderState(lastState);
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!langMenu.hidden && !event.target.closest(".lang-picker")) {
+      setLangMenuOpen(false);
+    }
+  });
+}
 
 applyPreferences();
 

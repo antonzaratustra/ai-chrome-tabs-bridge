@@ -1,9 +1,11 @@
 html {
-  width: 1120px;
-  min-width: 1120px;
-  max-width: 1120px;
-  min-height: 100%;
-  overflow-y: auto;
+  width: 800px;
+  min-width: 800px;
+  max-width: 800px;
+  height: 600px;
+  min-height: 600px;
+  max-height: 600px;
+  overflow: hidden;
   overflow-x: hidden;
 }
 
@@ -39,11 +41,13 @@ html[data-theme="dark"] {
 
 body {
   margin: 0;
-  width: 1120px;
-  min-width: 1120px;
-  max-width: 1120px;
-  min-height: 100%;
-  overflow-y: visible;
+  width: 800px;
+  min-width: 800px;
+  max-width: 800px;
+  height: 600px;
+  min-height: 600px;
+  max-height: 600px;
+  overflow: hidden;
   overflow-x: hidden;
   background:
     radial-gradient(circle at top left, rgba(206, 92, 60, 0.12), transparent 34%),
@@ -54,9 +58,10 @@ body {
 }
 
 .app {
-  min-height: 100%;
+  height: 100%;
+  min-height: 0;
   width: 100%;
-  padding: 10px 10px 14px;
+  padding: 10px 10px 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -112,9 +117,10 @@ h1 {
   gap: 6px;
 }
 
-.lang-switch {
+.lang-picker {
+  position: relative;
   display: flex;
-  gap: 4px;
+  align-items: center;
 }
 
 .switch-pill {
@@ -138,6 +144,30 @@ h1 {
 html[data-theme="dark"] .switch-pill.is-active {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #201410;
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  z-index: 20;
+}
+
+.lang-option {
+  min-width: 54px;
+}
+
+html[data-theme="dark"] .lang-menu {
+  background: var(--panel);
+  border-color: rgba(79, 61, 51, 0.9);
 }
 
 .controls {
@@ -243,17 +273,21 @@ button.button-link:hover {
 
 .tree {
   min-height: 0;
-  overflow: visible;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 100%;
   max-width: 100%;
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
 }
 
 .window-tabs {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 8px;
   overflow: visible;
   padding: 2px 2px 4px;
@@ -392,7 +426,7 @@ html[data-theme="dark"] .window-head {
   max-width: 100%;
   border: 1px solid rgba(219, 205, 191, 0.9);
   border-radius: 16px;
-  background: #fffdf8;
+  background: var(--panel-strong);
   overflow: hidden;
 }
 
