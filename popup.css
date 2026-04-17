@@ -114,6 +114,76 @@ html[data-theme="dark"] body::before {
   color: var(--muted);
 }
 
+.hero-copy {
+  min-width: 0;
+}
+
+.eyebrow-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.help-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.help-icon {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  cursor: help;
+}
+
+.help-tooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 25;
+  display: none;
+  width: min(340px, 72vw);
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: pre-line;
+}
+
+.help-wrap:hover .help-tooltip,
+.help-wrap:focus-within .help-tooltip {
+  display: block !important;
+}
+
+html[data-theme="dark"] .help-icon,
+html[data-theme="dark"] .help-tooltip {
+  background: var(--panel);
+  border-color: rgba(91, 51, 25, 0.9);
+}
+
+html[data-theme="dark"] .help-icon {
+  color: #ffb347;
+}
+
 h1 {
   margin: 0;
   font-size: 18px;
@@ -130,6 +200,41 @@ h1 {
   text-align: right;
   font-size: 12px;
   box-shadow: var(--shadow);
+}
+
+.summary.is-online,
+.summary.is-offline {
+  text-align: center;
+}
+
+.bridge-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.bridge-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  flex: 0 0 auto;
+  background: #34a853;
+  box-shadow: 0 0 0 2px rgba(52, 168, 83, 0.15);
+}
+
+.bridge-status.is-offline .bridge-status-dot {
+  background: #ea4335;
+  box-shadow: 0 0 0 2px rgba(234, 67, 53, 0.14);
+}
+
+html[data-theme="dark"] .bridge-status-dot {
+  box-shadow: 0 0 0 2px rgba(52, 168, 83, 0.25);
+}
+
+html[data-theme="dark"] .bridge-status.is-offline .bridge-status-dot {
+  box-shadow: 0 0 0 2px rgba(234, 67, 53, 0.22);
 }
 
 .switch-row {
@@ -285,6 +390,17 @@ button.button-link:hover {
   border-radius: 12px;
   background: var(--panel);
   color: var(--muted);
+  line-height: 1.35;
+}
+
+.notice-emphasis {
+  color: var(--ink);
+}
+
+.notice-note {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
   line-height: 1.35;
 }
 

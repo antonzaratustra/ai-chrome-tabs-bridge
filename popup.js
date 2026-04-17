@@ -2,6 +2,8 @@ const summaryEl = document.getElementById("summary");
 const treeEl = document.getElementById("tree");
 const refreshBtn = document.getElementById("refresh");
 const themeToggleBtn = document.getElementById("theme-toggle");
+const helpToggleBtn = document.getElementById("help-toggle");
+const helpTooltipEl = document.getElementById("help-tooltip");
 const langToggleBtn = document.getElementById("lang-toggle");
 const langMenu = document.getElementById("lang-menu");
 const switchRowEl = document.querySelector(".switch-row");
@@ -39,6 +41,11 @@ const I18N = {
     noTabsOutsideGroups: "No tabs outside groups",
     themeLight: "light",
     themeDark: "dark",
+    help: "How to use",
+    helpTooltip: "1) Make sure bridge.py is running.\n2) Reload the unpacked extension.\n3) Click Refresh and sync.\n4) Pick a window from the top row.\n5) Click tabs to activate them.\nIf the bridge is offline, start the script and try again.",
+    failedToFetch: "failed to fetch",
+    syncFailed: "sync failed",
+    commandFailed: "command failed",
     preferences: "Preferences",
     languageOptions: "Language options",
     chromeWindows: "Chrome windows"
@@ -72,6 +79,11 @@ const I18N = {
     noTabsOutsideGroups: "Нет вкладок вне групп",
     themeLight: "светлая",
     themeDark: "тёмная",
+    help: "Как пользоваться",
+    helpTooltip: "1) Убедитесь, что bridge.py запущен.\n2) Перезагрузите unpacked extension.\n3) Нажмите Refresh and sync.\n4) Выберите окно сверху.\n5) Кликайте вкладки, чтобы активировать их.\nЕсли bridge offline, запустите скрипт и попробуйте снова.",
+    failedToFetch: "не удалось получить данные",
+    syncFailed: "не удалось синхронизировать",
+    commandFailed: "не удалось выполнить команду",
     preferences: "Настройки",
     languageOptions: "Языки",
     chromeWindows: "Окна Chrome"
@@ -105,6 +117,11 @@ const I18N = {
     noTabsOutsideGroups: "No hay pestañas fuera de grupos",
     themeLight: "claro",
     themeDark: "oscuro",
+    help: "Cómo usar",
+    helpTooltip: "1) Asegúrate de que bridge.py esté en ejecución.\n2) Recarga la extensión unpacked.\n3) Pulsa Refresh and sync.\n4) Elige una ventana en la fila superior.\n5) Haz clic en las pestañas para activarlas.\nSi el bridge está offline, inicia el script y prueba otra vez.",
+    failedToFetch: "no se pudieron obtener los datos",
+    syncFailed: "falló la sincronización",
+    commandFailed: "falló el comando",
     preferences: "Preferencias",
     languageOptions: "Idiomas",
     chromeWindows: "Ventanas de Chrome"
@@ -138,6 +155,11 @@ const I18N = {
     noTabsOutsideGroups: "Aucun onglet hors groupe",
     themeLight: "clair",
     themeDark: "sombre",
+    help: "Mode d'emploi",
+    helpTooltip: "1) Vérifiez que bridge.py tourne.\n2) Rechargez l’extension unpacked.\n3) Cliquez sur Refresh and sync.\n4) Choisissez une fenêtre en haut.\n5) Cliquez sur les onglets pour les activer.\nSi le bridge est hors ligne, lancez le script et réessayez.",
+    failedToFetch: "impossible de récupérer les données",
+    syncFailed: "échec de la synchronisation",
+    commandFailed: "échec de la commande",
     preferences: "Préférences",
     languageOptions: "Langues",
     chromeWindows: "Fenêtres Chrome"
@@ -171,6 +193,11 @@ const I18N = {
     noTabsOutsideGroups: "Keine Tabs außerhalb von Gruppen",
     themeLight: "hell",
     themeDark: "dunkel",
+    help: "So geht's",
+    helpTooltip: "1) Stelle sicher, dass bridge.py läuft.\n2) Lade die unpacked Extension neu.\n3) Klicke auf Refresh and sync.\n4) Wähle ein Fenster oben.\n5) Klicke auf Tabs, um sie zu aktivieren.\nWenn der Bridge offline ist, starte das Skript und versuche es erneut.",
+    failedToFetch: "Daten konnten nicht abgerufen werden",
+    syncFailed: "Synchronisierung fehlgeschlagen",
+    commandFailed: "Befehl fehlgeschlagen",
     preferences: "Einstellungen",
     languageOptions: "Sprachen",
     chromeWindows: "Chrome-Fenster"
@@ -204,6 +231,11 @@ const I18N = {
     noTabsOutsideGroups: "Nenhuma aba fora de grupos",
     themeLight: "claro",
     themeDark: "escuro",
+    help: "Como usar",
+    helpTooltip: "1) Confirme que bridge.py está a correr.\n2) Recarregue a extensão unpacked.\n3) Clique em Refresh and sync.\n4) Escolha uma janela na fila de cima.\n5) Clique nas abas para as ativar.\nSe o bridge estiver offline, inicie o script e tente outra vez.",
+    failedToFetch: "não foi possível obter os dados",
+    syncFailed: "falha na sincronização",
+    commandFailed: "falha no comando",
     preferences: "Preferências",
     languageOptions: "Idiomas",
     chromeWindows: "Janelas do Chrome"
@@ -237,6 +269,11 @@ const I18N = {
     noTabsOutsideGroups: "Nessuna scheda fuori dai gruppi",
     themeLight: "chiaro",
     themeDark: "scuro",
+    help: "Come usare",
+    helpTooltip: "1) Verifica che bridge.py sia in esecuzione.\n2) Ricarica l’estensione unpacked.\n3) Fai clic su Refresh and sync.\n4) Scegli una finestra in alto.\n5) Fai clic sulle schede per attivarle.\nSe il bridge è offline, avvia lo script e riprova.",
+    failedToFetch: "impossibile recuperare i dati",
+    syncFailed: "sincronizzazione non riuscita",
+    commandFailed: "comando non riuscito",
     preferences: "Preferenze",
     languageOptions: "Lingue",
     chromeWindows: "Finestre di Chrome"
@@ -270,6 +307,11 @@ const I18N = {
     noTabsOutsideGroups: "グループ外のタブはありません",
     themeLight: "ライト",
     themeDark: "ダーク",
+    help: "使い方",
+    helpTooltip: "1) bridge.py で bridge が動いていることを確認。\n2) unpacked extension を再読み込み。\n3) Refresh and sync を押す。\n4) 上の列からウィンドウを選ぶ。\n5) タブをクリックして切り替える。\nbridge がオフラインならスクリプトを起動して再試行してください。",
+    failedToFetch: "データを取得できませんでした",
+    syncFailed: "同期に失敗しました",
+    commandFailed: "コマンドに失敗しました",
     preferences: "設定",
     languageOptions: "言語",
     chromeWindows: "Chrome ウィンドウ"
@@ -303,6 +345,11 @@ const I18N = {
     noTabsOutsideGroups: "그룹 밖의 탭이 없습니다",
     themeLight: "라이트",
     themeDark: "다크",
+    help: "사용 방법",
+    helpTooltip: "1) bridge.py로 bridge가 실행 중인지 확인.\n2) unpacked extension을 다시 로드.\n3) Refresh and sync 클릭.\n4) 위쪽에서 창 선택.\n5) 탭을 눌러 활성화.\nbridge가 오프라인이면 스크립트를 시작한 뒤 다시 시도하세요.",
+    failedToFetch: "데이터를 가져오지 못했습니다",
+    syncFailed: "동기화에 실패했습니다",
+    commandFailed: "명령 실행에 실패했습니다",
     preferences: "환경설정",
     languageOptions: "언어",
     chromeWindows: "Chrome 창"
@@ -336,6 +383,11 @@ const I18N = {
     noTabsOutsideGroups: "没有分组外标签页",
     themeLight: "浅色",
     themeDark: "深色",
+    help: "使用说明",
+    helpTooltip: "1) 确认 bridge.py 正在运行。\n2) 重新加载 unpacked extension。\n3) 点击 Refresh and sync。\n4) 在顶部选择一个窗口。\n5) 点击标签页即可激活。\n如果 bridge 离线，请启动脚本后重试。",
+    failedToFetch: "无法获取数据",
+    syncFailed: "同步失败",
+    commandFailed: "命令执行失败",
     preferences: "偏好设置",
     languageOptions: "语言",
     chromeWindows: "Chrome 窗口"
@@ -420,6 +472,8 @@ const WINDOW_STATE_LABELS = {
 
 let lastState = null;
 let uiState = loadUiState();
+let currentNoticeKey = null;
+let currentBridgeHealth = null;
 
 function currentLang() {
   return I18N[uiState.lang] ? uiState.lang : "en";
@@ -559,6 +613,13 @@ function applyPreferences() {
     themeToggleBtn.textContent = currentTheme() === "dark" ? t("themeDark") : t("themeLight");
     themeToggleBtn.setAttribute("aria-pressed", currentTheme() === "dark" ? "true" : "false");
   }
+  if (helpToggleBtn) {
+    helpToggleBtn.setAttribute("aria-label", t("help"));
+    helpToggleBtn.setAttribute("title", t("help"));
+  }
+  if (helpTooltipEl) {
+    helpTooltipEl.textContent = t("helpTooltip");
+  }
   if (langToggleBtn) {
     langToggleBtn.textContent = currentLang();
     langToggleBtn.setAttribute("aria-expanded", langMenu && !langMenu.hidden ? "true" : "false");
@@ -572,6 +633,11 @@ function applyPreferences() {
   }
   renderLanguageMenu();
   setLangMenuOpen(false);
+  if (lastState || currentNoticeKey) {
+    renderState(lastState);
+  } else if (currentBridgeHealth) {
+    renderBridgeHealth();
+  }
 }
 
 function setLang(lang) {
@@ -584,6 +650,27 @@ function setTheme(theme) {
   uiState.theme = theme === "dark" ? "dark" : "light";
   saveUiState();
   applyPreferences();
+}
+
+function setNotice(key) {
+  currentNoticeKey = key;
+  renderState(lastState);
+}
+
+function clearNotice() {
+  currentNoticeKey = null;
+}
+
+function renderBridgeHealth() {
+  if (!currentBridgeHealth) {
+    return;
+  }
+
+  summaryEl.classList.toggle("is-offline", !currentBridgeHealth.online);
+  summaryEl.classList.toggle("is-online", Boolean(currentBridgeHealth.online));
+  summaryEl.innerHTML = currentBridgeHealth.online
+    ? `<span class="bridge-status is-online"><span class="bridge-status-dot" aria-hidden="true"></span><span>${escapeHtml(t("bridgeOnline"))} · ${escapeHtml(t("queued"))} ${currentBridgeHealth.queued}</span></span>`
+    : `<span class="bridge-status is-offline"><span class="bridge-status-dot" aria-hidden="true"></span><span>${escapeHtml(t("bridgeOffline"))}</span></span>`;
 }
 
 function isGroupCollapsed(groupId, defaultCollapsed = false) {
@@ -808,7 +895,12 @@ function renderState(state) {
       .flatMap((window) => (window.tabs || []).filter((tab) => tab.groupId !== -1).map((tab) => tab.groupId))
   ).size;
 
-  summaryEl.innerHTML = `<span class="bridge-status">${windowCount} ${escapeHtml(t("windows"))} · ${tabCount} ${escapeHtml(t("tabs"))} · ${groupCount} ${escapeHtml(t("groups"))}</span>`;
+  if (state) {
+    summaryEl.classList.remove("is-offline", "is-online");
+    summaryEl.innerHTML = `<span class="bridge-status">${windowCount} ${escapeHtml(t("windows"))} · ${tabCount} ${escapeHtml(t("tabs"))} · ${groupCount} ${escapeHtml(t("groups"))}</span>`;
+  } else {
+    renderBridgeHealth();
+  }
 
   const windows = state?.windows || [];
   const activeWindowId = getActiveWindowId(windows);
@@ -817,34 +909,41 @@ function renderState(state) {
     : windows.findIndex((window) => String(window.id) === activeWindowId);
   const activeWindow = activeWindowIndex >= 0 ? windows[activeWindowIndex] : null;
 
-  treeEl.innerHTML = windows.length
+  const noticeHtml = currentNoticeKey
+    ? `<div class="notice notice-emphasis">${escapeHtml(t(currentNoticeKey))}<div class="notice-note">${escapeHtml(t("helpTooltip"))}</div></div>`
+    : "";
+
+  treeEl.innerHTML = `${noticeHtml}${windows.length
     ? `
       <section class="window-tabs" aria-label="${escapeHtml(t("chromeWindows"))}">
         ${windows.map((window, index) => renderWindowTab(window, index, String(window.id) === activeWindowId)).join("")}
       </section>
       ${activeWindow ? renderWindowPanel(activeWindow, activeWindowIndex) : `<div class="notice">${escapeHtml(t("noActiveWindow"))}</div>`}
     `
-    : `<div class="notice">${escapeHtml(t("stateNotLoaded"))}</div>`;
+    : (currentNoticeKey ? "" : `<div class="notice">${escapeHtml(t("stateNotLoaded"))}</div>`)}`;
 }
 
 async function loadState() {
   const state = await fetchJson("/state");
   lastState = state;
+  clearNotice();
   renderState(state);
 }
 
 async function refresh() {
   try {
     const health = await fetchJson("/health");
-    summaryEl.innerHTML = `<span class="bridge-status">${escapeHtml(t("bridgeOnline"))} · ${escapeHtml(t("queued"))} ${health.queued}</span>`;
+    currentBridgeHealth = { online: true, queued: health.queued };
+    renderBridgeHealth();
   } catch (error) {
-    summaryEl.innerHTML = `<span class="bridge-status">${escapeHtml(t("bridgeOffline"))} · ${escapeHtml(error.message || String(error))}</span>`;
+    currentBridgeHealth = { online: false };
+    renderBridgeHealth();
   }
 
   try {
     await loadState();
   } catch (error) {
-    treeEl.innerHTML = `<div class="notice">${escapeHtml(error.message || String(error))}</div>`;
+    setNotice("failedToFetch");
   }
 }
 
@@ -951,13 +1050,13 @@ treeEl.addEventListener("click", async (event) => {
 
     await refresh();
   } catch (error) {
-    treeEl.innerHTML = `<div class="notice">${escapeHtml(error.message || String(error))}</div>`;
+    setNotice("commandFailed");
   }
 });
 
 refreshBtn.addEventListener("click", () => {
   refreshAndSync().catch((error) => {
-    treeEl.innerHTML = `<div class="notice">${escapeHtml(error.message || String(error))}</div>`;
+    setNotice("syncFailed");
   });
 });
 
@@ -1005,5 +1104,5 @@ if (langToggleBtn && langMenu) {
 applyPreferences();
 
 refresh().catch((error) => {
-  treeEl.innerHTML = `<div class="notice">${escapeHtml(error.message || String(error))}</div>`;
+  setNotice("failedToFetch");
 });

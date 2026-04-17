@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-04-17T01:22:38.747Z",
+  "capturedAt": "2026-04-17T01:27:50.748Z",
   "windowCount": 4,
   "tabCount": 243,
   "windows": [
@@ -1364,13 +1364,13 @@
           "muted": false
         },
         {
-          "id": 11069213,
+          "id": 11070536,
           "index": 71,
           "active": false,
           "audible": false,
           "pinned": false,
           "highlighted": false,
-          "discarded": false,
+          "discarded": true,
           "incognito": false,
           "groupId": 420044688,
           "title": "OpenClaw: 5 применений, которые сломают тебе мозг - YouTube",
@@ -1550,7 +1550,7 @@
           "favIconUrl": "https://pay.amocrm.ru/frontend/paywall/v2/src/images/favicon/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -1569,7 +1569,7 @@
           "favIconUrl": "https://eventtabakoffru.amocrm.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": true
         },
         {
@@ -1588,7 +1588,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -1607,7 +1607,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -1626,16 +1626,16 @@
           "favIconUrl": "https://eventtabakoffru.amocrm.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": true
         },
         {
           "id": 11069670,
           "index": 85,
-          "active": false,
+          "active": true,
           "audible": false,
           "pinned": false,
-          "highlighted": false,
+          "highlighted": true,
           "discarded": false,
           "incognito": false,
           "groupId": 54536874,
@@ -1645,7 +1645,7 @@
           "favIconUrl": "https://eventtabakoffru.amocrm.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": true
         },
         {
@@ -1664,7 +1664,7 @@
           "favIconUrl": "https://eventtabakoffru.amocrm.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": true
         },
         {
@@ -1683,7 +1683,7 @@
           "favIconUrl": "https://ru.yougile.com/favicon.ico?v=5",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": true
         },
         {
@@ -1702,7 +1702,7 @@
           "favIconUrl": "https://eventtabakoffru.amocrm.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": true
         },
         {
@@ -1721,7 +1721,7 @@
           "favIconUrl": "https://eventtabakoffru.amocrm.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": true
         },
         {
@@ -1740,7 +1740,7 @@
           "favIconUrl": "https://eventtabakoffru.amocrm.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": true
         },
         {
@@ -1759,7 +1759,7 @@
           "favIconUrl": "https://eventtabakoffru.amocrm.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": true
         },
         {
@@ -1778,7 +1778,7 @@
           "favIconUrl": "https://eventtabakoffru.amocrm.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": true
         },
         {
@@ -1797,7 +1797,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -1816,7 +1816,7 @@
           "favIconUrl": "https://eventtabakoffru.amocrm.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -1835,7 +1835,7 @@
           "favIconUrl": "https://ru.yougile.com/favicon.ico?v=5",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -1854,7 +1854,7 @@
           "favIconUrl": "https://ru.yougile.com/favicon.ico?v=5",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -1873,7 +1873,7 @@
           "favIconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACH0lEQVR4AbRRPWhTURT+zs2L0nZQTJMURHTQpejgKppXRR10cAuKUhfFsUu1kAR8aF7rIpRu4i9EBHETFMFK+yoIopuCLoqTkL4YiljQxtzjd19iTVfFwz2ce77zfR/nvmfwj/F/DLJT0e7BMLqYm4zu5sL5WrYaXc6F0RvWR5nqs829S6/ZYDh4uy4fRtNo46VRBFCcFMgpMahAsFOAIynj3UYw56EbfwyuvU7H6S81BcbEIC1kMyMKj7G+gAuHKfoxHJPmAGDVIN9cvkBiMYE5toKZ+krhQL3kP1SrmQQHflpoiGKx3e07Bhm+Sy3Og0Ie0Oh+XPLHEIjNhbN5hWxUhRt/Iv4EPZFskELqKKcbyIEA31uQS785YtP9xAYMAdYmRByNXec4HDCyB7zxcI6PzZV97ztjoJWSPgj6XE+luNqbTgMVbHK+JEBVmgjEohue6qgqUq6l2rram4kB2spZ8kbOdMfQ1Ny27TOP12cno9McjDNpDFjI0GB1/kQ+XDhOYnISA8rfuS4hAvm2NQtfvw284lZ3LOAWWyYHBrrViNxT6FoDeN60hXxwJi5ptIWyXbw78Tn+leuGIJ9CCPwkqKMbyQaNib2f1TMFYleZT63ILMk3VdSPy/4t1dYVa/WGQmqqWvzRshPkJScxcDdnslj2xyk43CgVDsUV/0xcGnnuZovlg/W4MnK2USmMsj5YCvYvOdzlqoFr/iZ/AQAA///fUNklAAAABklEQVQDAMvHxSF5KrH5AAAAAElFTkSuQmCC",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -1892,7 +1892,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -1911,7 +1911,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -1930,7 +1930,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -1949,7 +1949,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -1968,7 +1968,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -1987,7 +1987,7 @@
           "favIconUrl": "https://telegram.org/img/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2006,7 +2006,7 @@
           "favIconUrl": "https://ru.yougile.com/favicon.ico?v=5",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": true
         },
         {
@@ -2025,7 +2025,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2044,7 +2044,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2063,7 +2063,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2082,7 +2082,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2101,7 +2101,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2120,7 +2120,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2139,7 +2139,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2158,7 +2158,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2177,7 +2177,7 @@
           "favIconUrl": "https://ru.yougile.com/favicon.ico?v=5",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2196,7 +2196,7 @@
           "favIconUrl": "https://ru.yougile.com/favicon.ico?v=5",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2215,7 +2215,7 @@
           "favIconUrl": "https://ru.yougile.com/favicon.ico?v=5",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2234,7 +2234,7 @@
           "favIconUrl": "",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2253,7 +2253,7 @@
           "favIconUrl": "https://static.tildacdn.com/tild3564-6365-4837-b832-383731373361/favicon.svg",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2272,17 +2272,17 @@
           "favIconUrl": "https://static.tildacdn.com/tild3564-6365-4837-b832-383731373361/favicon.svg",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
-          "id": 11069289,
+          "id": 11070545,
           "index": 119,
           "active": false,
           "audible": false,
           "pinned": false,
           "highlighted": false,
-          "discarded": false,
+          "discarded": true,
           "incognito": false,
           "groupId": 54536874,
           "title": "Как сделать карту Bybit в России и оплачивать зарубежные подписки в 2026 году",
@@ -2291,7 +2291,7 @@
           "favIconUrl": "https://static.tildacdn.com/tild3564-6365-4837-b832-383731373361/favicon.svg",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2310,7 +2310,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2329,7 +2329,7 @@
           "favIconUrl": "https://ru.yougile.com/favicon.ico?v=5",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2348,7 +2348,7 @@
           "favIconUrl": "https://ru.yougile.com/favicon.ico?v=5",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2367,7 +2367,7 @@
           "favIconUrl": "https://ru.yougile.com/favicon.ico?v=5",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2386,7 +2386,7 @@
           "favIconUrl": "",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2405,7 +2405,7 @@
           "favIconUrl": "https://static.tildacdn.com/tild3564-6365-4837-b832-383731373361/favicon.svg",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2424,7 +2424,7 @@
           "favIconUrl": "https://static.tildacdn.com/tild3564-6365-4837-b832-383731373361/favicon.svg",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2443,7 +2443,7 @@
           "favIconUrl": "https://static.tildacdn.com/tild3564-6365-4837-b832-383731373361/favicon.svg",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2462,7 +2462,7 @@
           "favIconUrl": "https://eventtabakoffru.amocrm.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2481,7 +2481,7 @@
           "favIconUrl": "https://ru.yougile.com/favicon.ico?v=5",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2500,7 +2500,7 @@
           "favIconUrl": "https://ru.yougile.com/favicon.ico?v=5",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2519,7 +2519,7 @@
           "favIconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACH0lEQVR4AbRRPWhTURT+zs2L0nZQTJMURHTQpejgKppXRR10cAuKUhfFsUu1kAR8aF7rIpRu4i9EBHETFMFK+yoIopuCLoqTkL4YiljQxtzjd19iTVfFwz2ce77zfR/nvmfwj/F/DLJT0e7BMLqYm4zu5sL5WrYaXc6F0RvWR5nqs829S6/ZYDh4uy4fRtNo46VRBFCcFMgpMahAsFOAIynj3UYw56EbfwyuvU7H6S81BcbEIC1kMyMKj7G+gAuHKfoxHJPmAGDVIN9cvkBiMYE5toKZ+krhQL3kP1SrmQQHflpoiGKx3e07Bhm+Sy3Og0Ie0Oh+XPLHEIjNhbN5hWxUhRt/Iv4EPZFskELqKKcbyIEA31uQS785YtP9xAYMAdYmRByNXec4HDCyB7zxcI6PzZV97ztjoJWSPgj6XE+luNqbTgMVbHK+JEBVmgjEohue6qgqUq6l2rram4kB2spZ8kbOdMfQ1Ny27TOP12cno9McjDNpDFjI0GB1/kQ+XDhOYnISA8rfuS4hAvm2NQtfvw284lZ3LOAWWyYHBrrViNxT6FoDeN60hXxwJi5ptIWyXbw78Tn+leuGIJ9CCPwkqKMbyQaNib2f1TMFYleZT63ILMk3VdSPy/4t1dYVa/WGQmqqWvzRshPkJScxcDdnslj2xyk43CgVDsUV/0xcGnnuZovlg/W4MnK2USmMsj5YCvYvOdzlqoFr/iZ/AQAA///fUNklAAAABklEQVQDAMvHxSF5KrH5AAAAAElFTkSuQmCC",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2538,7 +2538,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2557,7 +2557,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2576,7 +2576,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2595,7 +2595,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2614,7 +2614,7 @@
           "favIconUrl": "https://n8n.restaurantweek.ru/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2633,7 +2633,7 @@
           "favIconUrl": "https://telegram.org/img/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2652,7 +2652,7 @@
           "favIconUrl": "https://telegram.org/img/favicon.ico",
           "groupTitle": "Work",
           "groupColor": "yellow",
-          "groupCollapsed": true,
+          "groupCollapsed": false,
           "muted": false
         },
         {
@@ -2884,13 +2884,13 @@
           "muted": false
         },
         {
-          "id": 11069209,
+          "id": 11070542,
           "index": 151,
           "active": false,
           "audible": false,
           "pinned": false,
           "highlighted": false,
-          "discarded": false,
+          "discarded": true,
           "incognito": false,
           "groupId": 2070586895,
           "title": "Grok",
@@ -4309,13 +4309,13 @@
           "muted": false
         },
         {
-          "id": 11069953,
+          "id": 11070539,
           "index": 226,
           "active": false,
           "audible": false,
           "pinned": false,
           "highlighted": false,
-          "discarded": false,
+          "discarded": true,
           "incognito": false,
           "groupId": 385052289,
           "title": "127.0.0.1:8765/health",
@@ -4558,10 +4558,10 @@
         {
           "id": 11069377,
           "index": 239,
-          "active": true,
+          "active": false,
           "audible": false,
           "pinned": false,
-          "highlighted": true,
+          "highlighted": false,
           "discarded": false,
           "incognito": false,
           "groupId": 2129055235,

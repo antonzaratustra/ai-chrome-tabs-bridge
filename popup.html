@@ -9,8 +9,22 @@
   <body>
     <main class="app">
       <header class="hero">
-        <div>
-          <p class="eyebrow">AI Chrome Tabs Bridge</p>
+        <div class="hero-copy">
+          <div class="eyebrow-line">
+            <p class="eyebrow">AI Chrome Tabs Bridge</p>
+            <div class="help-wrap">
+              <button
+                id="help-toggle"
+                type="button"
+                class="help-icon"
+                aria-haspopup="false"
+                aria-describedby="help-tooltip"
+                aria-label="How to use"
+                title="How to use"
+              >i</button>
+              <div id="help-tooltip" class="help-tooltip" hidden role="tooltip"></div>
+            </div>
+          </div>
           <h1>Live access to tabs</h1>
         </div>
         <div class="header-tools">
