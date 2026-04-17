@@ -17,7 +17,7 @@ AI Chrome Tabs Bridge is a Chrome extension plus a small local Python bridge for
 
 You can install and use this project in two ways.
 
-### Option 1: Let Codex set it up
+### Option 1: Let an AI agent set it up
 
 If you are using Codex, install the skill named `chrome-tabs-bridge` first.
 
@@ -40,6 +40,10 @@ Codex will then:
 2. load the unpacked Chrome extension,
 3. start the local Python bridge,
 4. and guide you through `Refresh and sync`.
+
+If you use another agent, like Claude Code, it may not load Codex skills directly.
+In that case, use the repo's `SKILL.md` as the setup guide and adapt it to that
+tool's own project-instructions mechanism.
 
 This is the easiest option if you want the AI agent to handle the setup for you.
 
@@ -110,6 +114,9 @@ curl http://127.0.0.1:8765/state
 ## For AI agents
 
 This repository includes [`SKILL.md`](SKILL.md), a short repository-local guide that explains what the project is for and how an AI agent should use the live bridge. The active Codex skill still lives in the user's Codex skills folder, but this repo file is the human-readable copy that travels with the codebase.
+
+Other agent tools may use different mechanisms. For example, Claude Code uses
+project settings and subagent files instead of Codex skills.
 
 ## Command API
 
