@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Chrome Tabs Bridge",
+  "version": "0.1.0",
+  "description": "Expose live Chrome windows, tabs, and tab groups to a local bridge and accept tab-management commands.",
+  "permissions": [
+    "alarms",
+    "offscreen",
+    "storage",
+    "tabs",
+    "tabGroups"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8765/*",
+    "http://localhost:8765/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Chrome Tabs Bridge"
+  }
+}

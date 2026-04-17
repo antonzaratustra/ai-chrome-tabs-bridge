@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chrome Tabs Bridge</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Chrome Tabs Bridge</p>
+          <h1>Live access to tabs</h1>
+        </div>
+        <div class="header-tools">
+          <div id="summary" class="summary">Loading...</div>
+          <div class="switch-row" aria-label="Preferences">
+            <button id="theme-toggle" type="button" class="switch-pill"></button>
+            <div class="lang-switch" role="group" aria-label="Language">
+              <button id="lang-en" type="button" class="switch-pill">en</button>
+              <button id="lang-ru" type="button" class="switch-pill">ru</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="controls">
+        <button id="refresh" class="primary">Refresh and sync</button>
+      </section>
+
+      <section id="tree" class="tree" aria-live="polite"></section>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
