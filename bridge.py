@@ -187,7 +187,11 @@ def main() -> int:
   parser = argparse.ArgumentParser(description="Chrome tabs bridge server")
   parser.add_argument("--host", default="127.0.0.1")
   parser.add_argument("--port", type=int, default=8765)
-  parser.add_argument("--root", default=str(Path(__file__).resolve().parent))
+  parser.add_argument(
+    "--root",
+    default=str(Path.home() / ".chrome-tabs-bridge"),
+    help="Directory used to persist bridge state, queued commands, and results.",
+  )
   args = parser.parse_args()
 
   root = Path(args.root).resolve()

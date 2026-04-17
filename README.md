@@ -1,61 +1,89 @@
-# Chrome Tabs Bridge
+# AI Chrome Tabs Bridge
 
-Это расширение и локальный bridge для управления живым Chrome.
+AI Chrome Tabs Bridge is a Chrome extension plus a small local Python bridge for reading live Chrome windows, tabs, and tab groups, then sending tab-management commands back to the browser.
 
-Что оно делает:
+## What it does
 
-- читает все окна Chrome;
-- читает все вкладки и tab groups;
-- отправляет состояние в локальный HTTP bridge;
-- принимает команды на вкладки и окна;
-- может выполнять команды вроде `focus_window`, `activate_tab`, `close_tab`, `move_tab`, `group_tabs`, `ungroup_tabs`, `rename_group`.
+- reads the current Chrome window/tab/group state;
+- shows that state in a popup UI;
+- lets you activate tabs, focus windows, move tabs, and manage groups;
+- keeps runtime state outside the repository by default.
 
-## Как запустить bridge
+## Requirements
 
-1. Открой терминал.
-2. Перейди в папку расширения.
-3. Запусти:
+- Google Chrome
+- Python 3.13+ or any recent Python 3.x with the standard library
+- `gh` if you want to publish or manage the repository through GitHub CLI
+
+No third-party Python packages are required.
+
+## Repository layout
+
+- `manifest.json` - Chrome extension manifest
+- `background.js` - bridge sync and command handling
+- `popup.html`, `popup.css`, `popup.js` - extension UI
+- `bridge.py` - local HTTP bridge
+- `offscreen.html`, `offscreen.js` - extension support files
+
+Runtime files such as `state.json`, `queue.json`, and `results.jsonl` are ignored by Git.
+
+## Quick start
+
+1. Clone or download this repository.
+2. Open Chrome and load the extension:
+   - `chrome://extensions`
+   - enable `Developer mode`
+   - click `Load unpacked`
+   - choose the repository folder
+3. Start the local bridge:
 
 ```bash
-python3 /Users/antonzaratustra/Desktop/chrome-tabs-inspector/bridge.py
+python3 bridge.py
 ```
 
-Если хочешь хранить state и queue в другой папке, можно добавить `--root`.
+By default the bridge stores its data in:
 
-## Как загрузить расширение
+```text
+~/.chrome-tabs-bridge
+```
 
-1. Открой `chrome://extensions`
-2. Включи `Developer mode`
-3. Нажми `Load unpacked`
-4. Выбери папку `/Users/antonzaratustra/Desktop/chrome-tabs-inspector`
+You can override that with `--root` if you want a different location.
 
-## Как проверить, что все живо
+## Check that everything is running
 
 ```bash
 curl http://127.0.0.1:8765/health
 curl http://127.0.0.1:8765/state
 ```
 
-## Как отправить команду
+## Working with the popup
 
-Пример: сфокусировать последнее активное окно.
+- `Refresh and sync` asks Chrome for the latest state and updates the bridge.
+- The top row lets you switch between Chrome windows.
+- Clicking a tab activates it in Chrome.
+- Group headers can be collapsed or expanded.
+- The `i` icon in the header shows a short localized usage tip.
 
-```bash
-curl -X POST http://127.0.0.1:8765/command \
-  -H 'Content-Type: application/json' \
-  -d '{"action":"focus_window"}'
-```
+## Command API
 
-Пример: закрыть вкладку.
+The bridge listens on `http://127.0.0.1:8765` and accepts:
 
-```bash
-curl -X POST http://127.0.0.1:8765/command \
-  -H 'Content-Type: application/json' \
-  -d '{"action":"close_tab","tabId":123}'
-```
+- `GET /health`
+- `GET /state`
+- `POST /state`
+- `POST /command`
+- `POST /result`
+- `POST /clear`
 
-## Как пользоваться из popup
+## Publishing
 
-- `Синхронизировать сейчас` пинает Chrome и сразу отправляет state в bridge.
-- `Загрузить state` показывает сохраненное состояние из bridge.
-- `Команда JSON` позволяет вручную отправить любую команду в очередь.
+If you want to publish this repository to GitHub:
+
+1. Remove any runtime state from the working tree if needed.
+2. Commit the extension and bridge code.
+3. Push the branch.
+4. Open a draft PR or publish the default branch, depending on your workflow.
+
+## Security note
+
+Do not commit live browser state, personal session data, or any local debugging outputs. The ignored runtime files are meant only for local use.
