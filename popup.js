@@ -4,7 +4,7 @@ const refreshBtn = document.getElementById("refresh");
 const themeToggleBtn = document.getElementById("theme-toggle");
 const langToggleBtn = document.getElementById("lang-toggle");
 const langMenu = document.getElementById("lang-menu");
-const langMenuButtons = Array.from(document.querySelectorAll(".lang-option"));
+const switchRowEl = document.querySelector(".switch-row");
 
 const BRIDGE_URL = "http://127.0.0.1:8765";
 const UI_STATE_KEY = "chrome-tabs-bridge-ui-state";
@@ -38,7 +38,10 @@ const I18N = {
     ungroupedInfo: "Tabs that are not grouped yet",
     noTabsOutsideGroups: "No tabs outside groups",
     themeLight: "light",
-    themeDark: "dark"
+    themeDark: "dark",
+    preferences: "Preferences",
+    languageOptions: "Language options",
+    chromeWindows: "Chrome windows"
   },
   ru: {
     eyebrow: "Chrome Tabs Bridge",
@@ -68,7 +71,350 @@ const I18N = {
     ungroupedInfo: "Вкладки, которые еще не разложены по группам",
     noTabsOutsideGroups: "Нет вкладок вне групп",
     themeLight: "светлая",
-    themeDark: "тёмная"
+    themeDark: "тёмная",
+    preferences: "Настройки",
+    languageOptions: "Языки",
+    chromeWindows: "Окна Chrome"
+  },
+  es: {
+    eyebrow: "Chrome Tabs Bridge",
+    title: "Acceso en vivo a pestañas",
+    loading: "Cargando...",
+    refreshAndSync: "Actualizar y sincronizar",
+    bridgeOnline: "puente en línea",
+    bridgeOffline: "puente fuera de línea",
+    queued: "en cola",
+    windows: "ventanas",
+    tabs: "pestañas",
+    groups: "grupos",
+    id: "ID",
+    window: "Ventana",
+    active: "activa",
+    pinned: "fijada",
+    muted: "silenciada",
+    showWindow: "Mostrar ventana",
+    collapse: "Contraer",
+    expand: "Expandir",
+    open: "abierta",
+    collapsed: "contraída",
+    noActiveWindow: "No hay ventana activa",
+    stateNotLoaded: "Aún no se cargó el estado. Pulsa «Actualizar y sincronizar» o comprueba si el bridge está en ejecución.",
+    ungrouped: "Sin grupo",
+    tabsOutsideGroups: "pestañas fuera de grupos",
+    ungroupedInfo: "Pestañas que todavía no están agrupadas",
+    noTabsOutsideGroups: "No hay pestañas fuera de grupos",
+    themeLight: "claro",
+    themeDark: "oscuro",
+    preferences: "Preferencias",
+    languageOptions: "Idiomas",
+    chromeWindows: "Ventanas de Chrome"
+  },
+  fr: {
+    eyebrow: "Chrome Tabs Bridge",
+    title: "Accès en direct aux onglets",
+    loading: "Chargement...",
+    refreshAndSync: "Actualiser et synchroniser",
+    bridgeOnline: "pont en ligne",
+    bridgeOffline: "pont hors ligne",
+    queued: "en file",
+    windows: "fenêtres",
+    tabs: "onglets",
+    groups: "groupes",
+    id: "ID",
+    window: "Fenêtre",
+    active: "active",
+    pinned: "épinglée",
+    muted: "muette",
+    showWindow: "Afficher la fenêtre",
+    collapse: "Réduire",
+    expand: "Développer",
+    open: "ouverte",
+    collapsed: "réduite",
+    noActiveWindow: "Aucune fenêtre active",
+    stateNotLoaded: "L’état n’a pas encore été chargé. Appuie sur « Actualiser et synchroniser » ou vérifie que le bridge est en cours d’exécution.",
+    ungrouped: "Sans groupe",
+    tabsOutsideGroups: "onglets hors groupes",
+    ungroupedInfo: "Onglets qui ne sont pas encore groupés",
+    noTabsOutsideGroups: "Aucun onglet hors groupe",
+    themeLight: "clair",
+    themeDark: "sombre",
+    preferences: "Préférences",
+    languageOptions: "Langues",
+    chromeWindows: "Fenêtres Chrome"
+  },
+  de: {
+    eyebrow: "Chrome Tabs Bridge",
+    title: "Live-Zugriff auf Tabs",
+    loading: "Lädt...",
+    refreshAndSync: "Aktualisieren und synchronisieren",
+    bridgeOnline: "Bridge online",
+    bridgeOffline: "Bridge offline",
+    queued: "in Warteschlange",
+    windows: "Fenster",
+    tabs: "Tabs",
+    groups: "Gruppen",
+    id: "ID",
+    window: "Fenster",
+    active: "aktiv",
+    pinned: "angeheftet",
+    muted: "stumm",
+    showWindow: "Fenster anzeigen",
+    collapse: "Einklappen",
+    expand: "Ausklappen",
+    open: "geöffnet",
+    collapsed: "eingeklappt",
+    noActiveWindow: "Kein aktives Fenster",
+    stateNotLoaded: "Der Zustand wurde noch nicht geladen. Drücke „Aktualisieren und synchronisieren“ oder prüfe, ob der Bridge läuft.",
+    ungrouped: "Ohne Gruppe",
+    tabsOutsideGroups: "Tabs außerhalb von Gruppen",
+    ungroupedInfo: "Tabs, die noch nicht gruppiert sind",
+    noTabsOutsideGroups: "Keine Tabs außerhalb von Gruppen",
+    themeLight: "hell",
+    themeDark: "dunkel",
+    preferences: "Einstellungen",
+    languageOptions: "Sprachen",
+    chromeWindows: "Chrome-Fenster"
+  },
+  pt: {
+    eyebrow: "Chrome Tabs Bridge",
+    title: "Acesso ao vivo às abas",
+    loading: "Carregando...",
+    refreshAndSync: "Atualizar e sincronizar",
+    bridgeOnline: "bridge online",
+    bridgeOffline: "bridge offline",
+    queued: "na fila",
+    windows: "janelas",
+    tabs: "abas",
+    groups: "grupos",
+    id: "ID",
+    window: "Janela",
+    active: "ativa",
+    pinned: "fixada",
+    muted: "silenciada",
+    showWindow: "Mostrar janela",
+    collapse: "Recolher",
+    expand: "Expandir",
+    open: "aberta",
+    collapsed: "recolhida",
+    noActiveWindow: "Nenhuma janela ativa",
+    stateNotLoaded: "O estado ainda não foi carregado. Clique em «Atualizar e sincronizar» ou verifique se o bridge está em execução.",
+    ungrouped: "Sem grupo",
+    tabsOutsideGroups: "abas fora de grupos",
+    ungroupedInfo: "Abas que ainda não foram agrupadas",
+    noTabsOutsideGroups: "Nenhuma aba fora de grupos",
+    themeLight: "claro",
+    themeDark: "escuro",
+    preferences: "Preferências",
+    languageOptions: "Idiomas",
+    chromeWindows: "Janelas do Chrome"
+  },
+  it: {
+    eyebrow: "Chrome Tabs Bridge",
+    title: "Accesso live alle schede",
+    loading: "Caricamento...",
+    refreshAndSync: "Aggiorna e sincronizza",
+    bridgeOnline: "bridge online",
+    bridgeOffline: "bridge offline",
+    queued: "in coda",
+    windows: "finestre",
+    tabs: "schede",
+    groups: "gruppi",
+    id: "ID",
+    window: "Finestra",
+    active: "attiva",
+    pinned: "bloccata",
+    muted: "silenziosa",
+    showWindow: "Mostra finestra",
+    collapse: "Comprimi",
+    expand: "Espandi",
+    open: "aperta",
+    collapsed: "compressa",
+    noActiveWindow: "Nessuna finestra attiva",
+    stateNotLoaded: "Lo stato non è ancora stato caricato. Premi «Aggiorna e sincronizza» o controlla se il bridge è in esecuzione.",
+    ungrouped: "Senza gruppo",
+    tabsOutsideGroups: "schede fuori dai gruppi",
+    ungroupedInfo: "Schede che non sono ancora raggruppate",
+    noTabsOutsideGroups: "Nessuna scheda fuori dai gruppi",
+    themeLight: "chiaro",
+    themeDark: "scuro",
+    preferences: "Preferenze",
+    languageOptions: "Lingue",
+    chromeWindows: "Finestre di Chrome"
+  },
+  ja: {
+    eyebrow: "Chrome Tabs Bridge",
+    title: "タブへのライブアクセス",
+    loading: "読み込み中...",
+    refreshAndSync: "更新して同期",
+    bridgeOnline: "bridge オンライン",
+    bridgeOffline: "bridge オフライン",
+    queued: "キュー中",
+    windows: "ウィンドウ",
+    tabs: "タブ",
+    groups: "グループ",
+    id: "ID",
+    window: "ウィンドウ",
+    active: "アクティブ",
+    pinned: "固定",
+    muted: "ミュート",
+    showWindow: "ウィンドウを表示",
+    collapse: "折りたたむ",
+    expand: "展開",
+    open: "開いている",
+    collapsed: "折りたたみ",
+    noActiveWindow: "アクティブなウィンドウがありません",
+    stateNotLoaded: "状態はまだ読み込まれていません。「更新して同期」を押すか、bridge が動作しているか確認してください。",
+    ungrouped: "グループなし",
+    tabsOutsideGroups: "グループ外のタブ",
+    ungroupedInfo: "まだグループ化されていないタブ",
+    noTabsOutsideGroups: "グループ外のタブはありません",
+    themeLight: "ライト",
+    themeDark: "ダーク",
+    preferences: "設定",
+    languageOptions: "言語",
+    chromeWindows: "Chrome ウィンドウ"
+  },
+  ko: {
+    eyebrow: "Chrome Tabs Bridge",
+    title: "탭 실시간 접근",
+    loading: "불러오는 중...",
+    refreshAndSync: "새로고침 및 동기화",
+    bridgeOnline: "브리지 온라인",
+    bridgeOffline: "브리지 오프라인",
+    queued: "대기 중",
+    windows: "창",
+    tabs: "탭",
+    groups: "그룹",
+    id: "ID",
+    window: "창",
+    active: "활성",
+    pinned: "고정됨",
+    muted: "음소거",
+    showWindow: "창 표시",
+    collapse: "접기",
+    expand: "펼치기",
+    open: "열림",
+    collapsed: "접힘",
+    noActiveWindow: "활성 창이 없습니다",
+    stateNotLoaded: "상태가 아직 로드되지 않았습니다. «새로고침 및 동기화»를 누르거나 bridge 실행 여부를 확인하세요.",
+    ungrouped: "그룹 없음",
+    tabsOutsideGroups: "그룹 밖의 탭",
+    ungroupedInfo: "아직 그룹화되지 않은 탭",
+    noTabsOutsideGroups: "그룹 밖의 탭이 없습니다",
+    themeLight: "라이트",
+    themeDark: "다크",
+    preferences: "환경설정",
+    languageOptions: "언어",
+    chromeWindows: "Chrome 창"
+  },
+  zh: {
+    eyebrow: "Chrome Tabs Bridge",
+    title: "标签实时访问",
+    loading: "加载中...",
+    refreshAndSync: "刷新并同步",
+    bridgeOnline: "桥接在线",
+    bridgeOffline: "桥接离线",
+    queued: "排队中",
+    windows: "窗口",
+    tabs: "标签页",
+    groups: "分组",
+    id: "ID",
+    window: "窗口",
+    active: "活动",
+    pinned: "已固定",
+    muted: "静音",
+    showWindow: "显示窗口",
+    collapse: "折叠",
+    expand: "展开",
+    open: "已展开",
+    collapsed: "已折叠",
+    noActiveWindow: "没有活动窗口",
+    stateNotLoaded: "状态尚未加载。请点击“刷新并同步”，或检查 bridge 是否正在运行。",
+    ungrouped: "未分组",
+    tabsOutsideGroups: "分组外标签页",
+    ungroupedInfo: "尚未分组的标签页",
+    noTabsOutsideGroups: "没有分组外标签页",
+    themeLight: "浅色",
+    themeDark: "深色",
+    preferences: "偏好设置",
+    languageOptions: "语言",
+    chromeWindows: "Chrome 窗口"
+  }
+};
+
+const LANG_OPTIONS = [
+  { code: "en", flag: "🇬🇧", label: "English" },
+  { code: "ru", flag: "🇷🇺", label: "Русский" },
+  { code: "es", flag: "🇪🇸", label: "Español" },
+  { code: "fr", flag: "🇫🇷", label: "Français" },
+  { code: "de", flag: "🇩🇪", label: "Deutsch" },
+  { code: "pt", flag: "🇵🇹", label: "Português" },
+  { code: "it", flag: "🇮🇹", label: "Italiano" },
+  { code: "ja", flag: "🇯🇵", label: "日本語" },
+  { code: "ko", flag: "🇰🇷", label: "한국어" },
+  { code: "zh", flag: "🇨🇳", label: "中文" }
+];
+
+const WINDOW_STATE_LABELS = {
+  en: {
+    normal: "normal",
+    minimized: "minimized",
+    maximized: "maximized",
+    fullscreen: "fullscreen"
+  },
+  ru: {
+    normal: "обычное",
+    minimized: "свернутое",
+    maximized: "развернутое",
+    fullscreen: "полный экран"
+  },
+  es: {
+    normal: "normal",
+    minimized: "minimizada",
+    maximized: "maximizada",
+    fullscreen: "pantalla completa"
+  },
+  fr: {
+    normal: "normale",
+    minimized: "réduite",
+    maximized: "agrandie",
+    fullscreen: "plein écran"
+  },
+  de: {
+    normal: "normal",
+    minimized: "minimiert",
+    maximized: "maximiert",
+    fullscreen: "Vollbild"
+  },
+  pt: {
+    normal: "normal",
+    minimized: "minimizada",
+    maximized: "maximizada",
+    fullscreen: "tela cheia"
+  },
+  it: {
+    normal: "normale",
+    minimized: "ridotta",
+    maximized: "ingrandita",
+    fullscreen: "schermo intero"
+  },
+  ja: {
+    normal: "通常",
+    minimized: "最小化",
+    maximized: "最大化",
+    fullscreen: "全画面"
+  },
+  ko: {
+    normal: "보통",
+    minimized: "최소화됨",
+    maximized: "최대화됨",
+    fullscreen: "전체 화면"
+  },
+  zh: {
+    normal: "普通",
+    minimized: "已最小化",
+    maximized: "已最大化",
+    fullscreen: "全屏"
   }
 };
 
@@ -83,6 +429,10 @@ function currentTheme() {
   return uiState.theme === "dark" ? "dark" : "light";
 }
 
+function isSupportedLang(lang) {
+  return LANG_OPTIONS.some((option) => option.code === lang);
+}
+
 function t(key) {
   const lang = currentLang();
   return I18N[lang][key] ?? I18N.en[key] ?? key;
@@ -90,21 +440,8 @@ function t(key) {
 
 function translateWindowState(state) {
   const key = String(state || "normal");
-  const map = {
-    en: {
-      normal: "normal",
-      minimized: "minimized",
-      maximized: "maximized",
-      fullscreen: "fullscreen"
-    },
-    ru: {
-      normal: "обычное",
-      minimized: "свернутое",
-      maximized: "развернутое",
-      fullscreen: "полный экран"
-    }
-  };
-  return map[currentLang()][key] || key;
+  const labels = WINDOW_STATE_LABELS[currentLang()] || WINDOW_STATE_LABELS.en;
+  return labels[key] || key;
 }
 
 function escapeHtml(text) {
@@ -148,7 +485,7 @@ function loadUiState() {
     return {
       activeWindowId: parsed.activeWindowId ?? null,
       collapsedGroups: parsed.collapsedGroups || {},
-      lang: parsed.lang === "ru" ? "ru" : "en",
+      lang: isSupportedLang(parsed.lang) ? parsed.lang : "en",
       theme: parsed.theme === "dark" ? "dark" : "light"
     };
   } catch {
@@ -165,9 +502,30 @@ function saveUiState() {
   localStorage.setItem(UI_STATE_KEY, JSON.stringify(uiState));
 }
 
+function renderLanguageMenu() {
+  if (!langMenu) {
+    return;
+  }
+
+  langMenu.innerHTML = LANG_OPTIONS.map(
+    (option) => `
+      <button
+        type="button"
+        class="switch-pill lang-option ${option.code === currentLang() ? "is-active" : ""}"
+        data-lang="${escapeHtml(option.code)}"
+        aria-pressed="${option.code === currentLang() ? "true" : "false"}"
+      >
+        <span class="lang-flag" aria-hidden="true">${escapeHtml(option.flag)}</span>
+        <span class="lang-label">${escapeHtml(option.label)}</span>
+      </button>
+    `
+  ).join("");
+}
+
 function applyPreferences() {
   document.documentElement.lang = currentLang();
   document.documentElement.dataset.theme = currentTheme();
+  document.title = t("title");
 
   const eyebrowEl = document.querySelector(".eyebrow");
   const titleEl = document.querySelector("h1");
@@ -185,16 +543,17 @@ function applyPreferences() {
     themeToggleBtn.setAttribute("aria-pressed", currentTheme() === "dark" ? "true" : "false");
   }
   if (langToggleBtn) {
-    langToggleBtn.textContent = currentLang();
+    langToggleBtn.textContent = currentLang().toUpperCase();
     langToggleBtn.setAttribute("aria-expanded", langMenu && !langMenu.hidden ? "true" : "false");
+    langToggleBtn.setAttribute("title", currentLang().toUpperCase());
   }
-  for (const button of langMenuButtons) {
-    const alternateLang = currentLang() === "en" ? "ru" : "en";
-    button.dataset.lang = alternateLang;
-    button.textContent = alternateLang;
-    button.classList.toggle("is-active", false);
+  if (switchRowEl) {
+    switchRowEl.setAttribute("aria-label", t("preferences"));
   }
-  document.title = t("title");
+  if (langMenu) {
+    langMenu.setAttribute("aria-label", t("languageOptions"));
+  }
+  renderLanguageMenu();
 }
 
 function setLang(lang) {
@@ -437,7 +796,7 @@ function renderState(state) {
 
   treeEl.innerHTML = windows.length
     ? `
-      <section class="window-tabs" aria-label="Окна Chrome">
+      <section class="window-tabs" aria-label="${escapeHtml(t("chromeWindows"))}">
         ${windows.map((window, index) => renderWindowTab(window, index, String(window.id) === activeWindowId)).join("")}
       </section>
       ${activeWindow ? renderWindowPanel(activeWindow, activeWindowIndex) : `<div class="notice">${escapeHtml(t("noActiveWindow"))}</div>`}
