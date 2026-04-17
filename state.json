@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-04-17T00:56:16.272Z",
+  "capturedAt": "2026-04-17T01:01:06.327Z",
   "windowCount": 3,
   "tabCount": 242,
   "windows": [
@@ -4629,10 +4629,10 @@
           "discarded": false,
           "incognito": false,
           "groupId": -1,
-          "title": "New Tab",
-          "url": "chrome://newtab/",
-          "host": "newtab",
-          "favIconUrl": "chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/img/logo-small.svg",
+          "title": "Extensions",
+          "url": "chrome://extensions/",
+          "host": "extensions",
+          "favIconUrl": "",
           "groupTitle": "",
           "groupColor": "",
           "groupCollapsed": false,

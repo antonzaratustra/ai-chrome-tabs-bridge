@@ -338,7 +338,12 @@ function renderGroup(group) {
         <div class="group-head-main">
           <span class="badge">${escapeHtml(group.tabs.length)}</span>
           <span class="group-name">${escapeHtml(group.title)}</span>
-          <span class="badge badge-color">${escapeHtml(group.color)}</span>
+          <span
+            class="group-color-swatch"
+            data-color="${escapeHtml(group.color)}"
+            title="${escapeHtml(group.color)}"
+            aria-label="${escapeHtml(group.color)}"
+          ></span>
           <span class="group-state">${collapsed ? t("collapsed") : t("open")}</span>
         </div>
         <div class="group-actions">
