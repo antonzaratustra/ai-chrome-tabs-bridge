@@ -19,7 +19,22 @@ You can install and use this project in two ways.
 
 ### Option 1: Let Codex set it up
 
-If you are using Codex, install the `chrome-tabs-bridge` skill first. Then open a fresh Codex chat and tell it to use that skill. Codex will:
+If you are using Codex, install the skill named `chrome-tabs-bridge` first.
+
+What that means:
+
+1. The skill file is called `SKILL.md`.
+2. Codex stores installed skills in its own skills folder.
+3. The repo copy of `SKILL.md` is only a reference file. The installed skill is the one Codex loads from its skills folder.
+
+Then open a fresh Codex chat and say:
+
+```text
+Use skill chrome-tabs-bridge.
+Clone the repo, load the Chrome extension, start the bridge, and help me manage tabs.
+```
+
+Codex will then:
 
 1. clone the GitHub repository,
 2. load the unpacked Chrome extension,
