@@ -20,12 +20,13 @@ You can install and use this project in two ways.
 ### Option 1: Let an AI agent set it up
 
 If you are using Codex, install the skill named `chrome-tabs-bridge` first.
+This repository includes the same `SKILL.md` file that Codex should load.
 
 What that means:
 
 1. The skill file is called `SKILL.md`.
 2. Codex stores installed skills in its own skills folder.
-3. The repo copy of `SKILL.md` is only a reference file. The installed skill is the one Codex loads from its skills folder.
+3. You can copy this repo's `SKILL.md` into that folder, or install the skill from GitHub if you prefer.
 
 Then open a fresh Codex chat and say:
 
@@ -87,7 +88,7 @@ No third-party Python packages are required.
 - `popup.html`, `popup.css`, `popup.js` - extension UI
 - `bridge.py` - local HTTP bridge
 - `offscreen.html`, `offscreen.js` - extension support files
-- `SKILL.md` - repository-local guide for AI agents and contributors
+- `SKILL.md` - Codex skill file and repository-local guide for AI agents and contributors
 
 Runtime files such as `state.json`, `queue.json`, and `results.jsonl` are ignored by Git.
 
@@ -113,7 +114,7 @@ curl http://127.0.0.1:8765/state
 
 ## For AI agents
 
-This repository includes [`SKILL.md`](SKILL.md), a short repository-local guide that explains what the project is for and how an AI agent should use the live bridge. The active Codex skill still lives in the user's Codex skills folder, but this repo file is the human-readable copy that travels with the codebase.
+This repository includes [`SKILL.md`](SKILL.md), the Codex skill file itself. It also serves as a repository-local guide that explains what the project is for and how an AI agent should use the live bridge.
 
 Other agent tools may use different mechanisms. For example, Claude Code uses
 project settings and subagent files instead of Codex skills.
